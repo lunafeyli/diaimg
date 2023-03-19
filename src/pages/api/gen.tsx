@@ -51,7 +51,7 @@ async function getData(query: IQuery) {
 			number: ver.number as string,
 			text: ver.text as string,
 		},
-		title: query.titulo || `Bom ${type === "dia" ? "Dia" : "Tarde"}`,
+		title: query.titulo || `${type === "dia" ? "Bom Dia" : "Boa Tarde"}`,
 	};
 }
 
