@@ -1,4 +1,6 @@
 const style = (backgroundURL: string) => `
+	@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -68,24 +70,6 @@ export function getTemplate({
 }: Props) {
 	return (
 		<html>
-			<meta charSet="utf-8" />
-			<title>Bom Dia</title>
-			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link rel="preconnect" href="https://fonts.gstatic.com" />
-			<link
-				href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap"
-				rel="stylesheet"
-			/>
-			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link rel="preconnect" href="https://fonts.gstatic.com" />
-			<link
-				href="https://fonts.googleapis.com/css2?family=Handlee&display=swap"
-				rel="stylesheet"
-			/>
-			<meta
-				name="viewport"
-				content="width=device-width, initial-scale=1"
-			/>
 			<style dangerouslySetInnerHTML={{ __html: style(backgroundURL) }} />
 			<body>
 				<h1>
