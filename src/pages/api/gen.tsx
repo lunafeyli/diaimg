@@ -2,15 +2,18 @@ import { withOGImage } from "next-api-og-image";
 import { getTemplate } from "@/lib/template";
 import axios from "axios";
 import { createClient } from "pexels";
+import phrasesT from "@/resources/phrases-t.json";
 import phrases from "@/resources/phrases.json";
 import { random } from "@/scripts/random";
 
 interface IQuery {
-	title?: string;
-	message?: string;
+	titulo?: string;
+	subtitulo?: string;
+	tipo?: "dia" | "tarde";
 }
 
 async function getData(query: IQuery) {
+	const type = query.tipo ? query.tipo : "dia";
 	const ver = await axios
 		.get("https://www.abibliadigital.com.br/api/verses/nvi/random")
 		.then((data) => data.data)
@@ -35,7 +38,11 @@ async function getData(query: IQuery) {
 
 	return {
 		message: {
-			phrase: phrases[random({ max: phrases.length })],
+			phrase:
+				query.subtitulo ||
+				(type === "dia" ? phrases : phrasesT)[
+					random({ max: phrases.length })
+				],
 		},
 		backgroundURL: photos.photos[0].src.original as string,
 		verticle: {
@@ -44,7 +51,7 @@ async function getData(query: IQuery) {
 			number: ver.number as string,
 			text: ver.text as string,
 		},
-		title: query.title || "Bom Dia",
+		title: query.titulo || `Bom ${type === "dia" ? "Dia" : "Tarde"}`,
 	};
 }
 
@@ -58,6 +65,7 @@ export default withOGImage<"query", IQuery>({
 	},
 	height: 592,
 	width: 592,
+	type: "png",
 	dev: {
 		inspectHtml: false,
 	},

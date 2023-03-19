@@ -23,7 +23,7 @@ const style = (backgroundURL: string) => `
 		top: 24px;
 		left: 32px;
 		color: crimson;
-		text-shadow: 1px 0 0 crimson, -1px 0 0 crimson, 0 1px 0 crimson, 0 -1px 0 crimson, 1px 1px crimson, -1px -1px 0 crimson, 1px -1px 0 crimson, -1px 1px 0 crimson;
+		/*text-shadow: 1px 0 0 crimson, -1px 0 0 crimson, 0 1px 0 crimson, 0 -1px 0 crimson, 1px 1px crimson, -1px -1px 0 crimson, 1px -1px 0 crimson, -1px 1px 0 crimson;*/
 	}
 
 	h2 {
@@ -35,7 +35,7 @@ const style = (backgroundURL: string) => `
 		color: #2b2020;
 		font-family: "Handlee", cursive;
 		font-style: italic;
-		text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+		text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 	}
 
 	#versiculo {
