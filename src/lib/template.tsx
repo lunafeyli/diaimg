@@ -78,7 +78,7 @@ export function getTemplate({
 				</h1>
 				<h2>{message}</h2>
 				<div id="versiculo">
-					<p>"{verticle.text}"</p>
+					<p>{`"${verticle.text}"`}</p>
 					<span>
 						({verticle.book} {verticle.chapter}:{verticle.number})
 					</span>
