@@ -1,5 +1,5 @@
 const style = (backgroundURL: string) => `
-	@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Merienda:wght@700&display=swap');
 
 	* {
 		margin: 0;
@@ -58,7 +58,9 @@ interface Props {
 		chapter: string;
 		number: string;
 	};
-	message: string;
+	message: {
+		phrase: string;
+	};
 	title: string;
 }
 
@@ -76,7 +78,7 @@ export function getTemplate({
 					{title}
 					{"!".repeat(Math.floor(Math.random() * (3 - 1) + 1))}
 				</h1>
-				<h2>{message}</h2>
+				<h2>{message.phrase}</h2>
 				<div id="versiculo">
 					<p>{`"${verticle.text}"`}</p>
 					<span>

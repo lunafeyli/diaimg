@@ -2,6 +2,8 @@ import { withOGImage } from "next-api-og-image";
 import { getTemplate } from "@/lib/template";
 import axios from "axios";
 import { createClient } from "pexels";
+import phrases from "@/resources/phrases.json";
+import { random } from "@/scripts/random";
 
 interface IQuery {
 	title?: string;
@@ -14,10 +16,10 @@ async function getData(query: IQuery) {
 		.then((data) => data.data)
 		.catch((err) => console.error(err));
 
-	const phrase = await axios
-		.get(process.env.BASE_URL + "api/phrase")
-		.then((data) => data.data)
-		.catch((err) => console.error(err));
+	// const phrase: { phrase: string } = await axios
+	// 	.get(process.env.BASE_URL + "api/phrase")
+	// 	.then((data) => data.data)
+	// 	.catch((err) => console.error(err));
 
 	const client = createClient(
 		"563492ad6f9170000100000137c51c35be9e495d805d553b0ecaba16"
@@ -32,7 +34,9 @@ async function getData(query: IQuery) {
 		.then((photos) => JSON.parse(JSON.stringify(photos)));
 
 	return {
-		message: query.message || (phrase.phrase as string),
+		message: {
+			phrase: phrases[random({ max: phrases.length })],
+		},
 		backgroundURL: photos.photos[0].src.original as string,
 		verticle: {
 			book: ver.book.name as string,
