@@ -25,7 +25,7 @@ async function getData(query: IQuery) {
 		.get("https://www.abibliadigital.com.br/api/verses/nvi/random")
 		.then((data) => data.data)
 		.catch((err) => console.error(err));
-	const quote = fetch("https://diaimg.vercel.app/api/quote").then(data => data.json()).then(a => console.log(a.quote))
+	const quote = await fetch("https://diaimg.vercel.app/api/quote").then(data => data.json()).then(a => a.quote)
 		.catch((err) => console.error(err)) as unknown as IQuote;
 	// const quote = quotes[random({ max: quotes.length })];
 
