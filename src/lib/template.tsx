@@ -62,6 +62,10 @@ interface Props {
 		phrase: string;
 	};
 	title: string;
+	quote: {
+        text: string;
+        author: string;
+    };
 }
 
 export function getTemplate({
@@ -69,6 +73,7 @@ export function getTemplate({
 	backgroundURL,
 	verticle,
 	title,
+	quote
 }: Props) {
 	return (
 		<html>
@@ -80,9 +85,9 @@ export function getTemplate({
 				</h1>
 				<h2>{message.phrase}</h2>
 				<div id="versiculo">
-					<p>{`"${verticle.text}"`}</p>
+					<p>{`"${quote.text}"`}</p>
 					<span>
-						({verticle.book} {verticle.chapter}:{verticle.number})
+						({quote.author})
 					</span>
 				</div>
 			</body>

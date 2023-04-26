@@ -9,6 +9,10 @@ const nextConfig = {
         source: '/api/gen.png',
         destination: '/api/gen',
       },
+      {
+        source: '/',
+        destination: '/api/gen',
+      },
     ]
   }
 }

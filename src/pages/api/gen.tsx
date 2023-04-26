@@ -4,6 +4,7 @@ import axios from "axios";
 import { createClient } from "pexels";
 import phrasesT from "@/resources/phrases-t.json";
 import phrases from "@/resources/phrases.json";
+import q from "@/resources/phrases.json";
 import { random } from "@/scripts/random";
 
 interface IQuery {
@@ -12,12 +13,19 @@ interface IQuery {
 	tipo?: "dia" | "tarde";
 }
 
+type IQuote = {
+	text: string;
+	author: string;
+}
+
 async function getData(query: IQuery) {
+	const quotes = q as unknown as IQuote[]
 	const type = query.tipo ? query.tipo : "dia";
 	const ver = await axios
 		.get("https://www.abibliadigital.com.br/api/verses/nvi/random")
 		.then((data) => data.data)
 		.catch((err) => console.error(err));
+	const quote = quotes[random({ max: quotes.length })];
 
 	// const phrase: { phrase: string } = await axios
 	// 	.get(process.env.BASE_URL + "api/phrase")
@@ -52,6 +60,7 @@ async function getData(query: IQuery) {
 			text: ver.text as string,
 		},
 		title: query.titulo || `${type === "dia" ? "Bom Dia" : "Boa Tarde"}`,
+		quote
 	};
 }
 
