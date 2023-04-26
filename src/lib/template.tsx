@@ -42,7 +42,8 @@ const style = (backgroundURL: string) => `
 		position: absolute;
 		bottom: 24px;
 		right: 24px;
-		width: 50%;
+		min-width: 50%;
+		max-width: 90%;
 		font-size: 22px;
 		color: #cacaca;
 		background: #13131380;
